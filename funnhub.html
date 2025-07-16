@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNNHUB</title>
+    <link rel="stylesheet" href="funnhub1.css">
+</head>
+<body>
+    <header>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search Games">
+            <button type="submit">Search</button>
+            <div id="searchResults"></div>
+        </div>
+
+        <nav>
+            <ul><b>
+                <li><a href="#home">Home</a></li>
+                <li><a href="rule.html">Rules</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="contactfunnhub.html">Contact</a></li>
+            </b></ul>
+        </nav>
+
+        <!-- ✅ Logo moved to the right side -->
+        <div class="logo">
+            <img src="FunnHub.PNG" alt="FunnHub Logo">
+        </div>
+    </header>
+
+    <script>
+        const games = [
+            { name: "hangMan", url: "build-hangman-game-html-javascript" },
+            { name: "piano", url: "Playable PIANO in JavaScript" },
+            { name: "quiz", url: "Quiz Application with Timer" },
+        ];
+
+        function searchGames() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = '';
+
+            const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+
+            if (filteredGames.length === 0) {
+                resultsContainer.innerHTML = "<p>No results found</p>";
+            } else {
+                filteredGames.forEach(game => {
+                    const gameLink = document.createElement('a');
+                    gameLink.href = game.url;
+                    gameLink.textContent = game.name;
+                    gameLink.setAttribute('target', '_blank');
+                    resultsContainer.appendChild(gameLink);
+                    resultsContainer.appendChild(document.createElement('br'));
+                });
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchGames);
+    </script>
+
+    <main>
+       
+              <section id="home">
+                <div class="container1">
+                    <h2>Game Suggestion</h2>
+                    <table>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Input</th>
+                        </tr>
+                        <tr>
+                            <td><label for="age">Age:</label></td>
+                            <td><input type="number" id="age" name="age" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="genre">Favorite Genre:</label></td>
+                            <td>
+                                <select id="genre" name="genre" required>
+                                    <option value="">Select Genre</option>
+                                    <option value="action">Action</option>
+                                    <option value="adventure">Adventure</option>
+                                    <option value="strategy">Strategy</option>
+                                    <option value="puzzle">Puzzle</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="button" onclick="suggestGame()">Get Suggestion</button>
+                    <div id="gameSuggestion"></div>
+                </div>
+                        <div class="slideshow-container">
+                    <div class="slide">
+                        <img src="tic.png" alt="Slide 1">
+                        <div class="slide-content">
+                            <h1>Tic Tac Toe</h1>
+                            <p></p>
+                        </div>
+                    </div>
+                
+                    <div class="slide">
+                        <img src="WORD.png" alt="Slide 2">
+                        <div class="slide-content">
+                            <h1>Guessing the word</h1>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="WORDs.png" alt="Slide 3">
+                        <div class="slide-content">
+                            <h1>Word Scrambler</h1>
+                        </div>
+                    </div>
+                <div class="slide">
+                        <img src="typing.png" alt="Slide 4">
+                        <div class="slide-content">
+                            <h1>Let's Test your typo speed!!!</h1>
+                        </div>
+                    </div>
+                            <div class="slide">
+                        <img src="sna.png" alt="Slide 5">
+                        <div class="slide-content">
+                            <h1>Snake Game</h1>
+                        </div>
+                    </div>
+                                <div class="slide">
+                        <img src="piano.png" alt="Slide 6">
+                        <div class="slide-content">
+                            <h1>Play the music</h1>
+                        </div>
+                    </div>
+
+              </section>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change slide every 2 seconds
+    }
+</script>
+
+<script>
+function suggestGame() {
+    var age = document.getElementById('age').value;
+    var genre = document.getElementById('genre').value;
+    var suggestion = '';
+
+    // Basic logic for suggesting games based on age and genre
+    if (age < 12) {
+        if (genre === 'action') {
+            suggestion = 'Super Mario Bros';
+        } else if (genre === 'adventure') {
+            suggestion = 'word guessing game';
+        } else if (genre === 'strategy') {
+            suggestion = 'Word scrambler';
+        } else if (genre === 'puzzle') {
+            suggestion = 'Hangman Game';
+        }
+    } else {
+        if (genre === 'action') {
+            suggestion = 'colour blast';
+        } else if (genre === 'adventure') {
+            suggestion = 'astroid destroyer';
+        } else if (genre === 'strategy') {
+            suggestion = 'tetris';
+        } else if (genre === 'puzzle') {
+            suggestion = 'Match the picture ';
+        }
+    }
+
+    document.getElementById('gameSuggestion').innerText = 'Based on your input, we suggest: ' + suggestion;
+}
+</script>
+        <section id="games" class="video-list">
+   </script>
+<section id="games" class="video-list">
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\tic tac toe\index.html">
+            <img src="tic.png" alt="Tic Tac Toe" >
+            <h2>Tic Tac Toe</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Word Guessing Game\Word Guessing Game\index.html">
+            <img src="WORD.png" alt="Word Guessing">
+            <h2>Guess the Word</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Word Scramble Game\Word Scramble Game\index.html">
+            <img src="WORDs.png" alt="Word Scrambler">
+            <h2>Word Scrambler</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Snake Game in JavaScript\Snake Game in JavaScript\index.html">
+            <img src="sna.png" alt="Snake Game">
+            <h2>Snake Game</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\MyGames\Playable PIANO in JavaScript\Playable PIANO in JavaScript\index.html">
+            <img src="piano.png" alt="Piano">
+            <h2>Piano Corner</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Rock Paper Scissors\Rock Paper Scissors\index.html">
+            <img src="sps.png" alt="SPS">
+            <h2>Stone paper Scissor</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\MyGames\Memory Card Games\Memory Card Games\Memory Cards Game [Demo 1]\index.html">
+            <img src="Mcard.png" alt="Memory Cards">
+            <h2>Match the Picture</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\MyGames\Image Resizer JavaScript\Image Resizer JavaScript\index.html">
+            <img src="Resizer.png" alt="Image Resizer">
+            <h2>Image Resizer</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\MyGames\Drawing App JavaScript\Drawing App JavaScript\Drawing.html">
+            <img src="Drawing.png" alt="Drawing App">
+            <h2>Drawing App</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\building game\build.html">
+            <img src="Building.png" alt="Tetris">
+            <h2>Tetris</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\marion\mar.html">
+            <img src="Mario.png"alt="Super Mario">
+            <h2>Super Mario</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\sun\sun.html">
+            <img src="Sun.png" alt="Astroid Destroyer">
+            <h2>Astroid destroyer</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\colour blast\colo.html">
+            <img src="Color.png" alt="Colour Blast">
+            <h2>Colour blast</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Text to Speech Converter\Text to Speech Converter\index.html">
+            <img src="SS.png" alt="Text to Speech">
+            <h2>Text to Speech Converter</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Typing Speed Test Game in JavaScript\Typing Speed Test Game in JavaScript\index.html">
+            <img src="typing.png" alt="Typing Speed Test">
+            <h2>Typing Speed Test</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Random Password Generator JavaScript\Random Password Generator JavaScript\index.html">
+            <img src="Password generator.png" alt="Password Generator">
+            <h2>Password Generator</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Password Validation Check JavaScript\Password Validation Check JavaScript\index.html">
+            <img src="Validation.png" alt="Password Validation">
+            <h2>Validate Your Password</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\Quiz Application with Timer\Quiz Application with Timer\index.html">
+            <img src="Quiz.png" alt="Quiz Game">
+            <h2>Quiz Game</h2>
+        </a>
+    </div>
+    <div class="video">
+        <a href="C:\Users\ACER\Downloads\FunnHub\number gusessing game\Game in HTML CSS & JavaScript\index.html">
+            <img src="guessNUM.png" alt="Guess the number">
+            <h2>Guess the number</h2>
+        </a>
+    </div>
+</section>
+
+
+        <section id="contact">
+
+
+        </section>
+    </main>
+
+    <footer>
+        <p><b>&copy; 2024 FUNNHUB. DEVELOPED BY ALSAS</b></p>
+    </footer>
+
+    <center>
+        <div class="col">
+            <h2>Contact Us</h2>
+        </div>
+
+        <div id="c1">
+            <ul id="c2">
+                <li><a href="#"><h3 style="color: white;">Our mail id:- funnhub6969@gmail.com</h3></a></li>
+                <li><a href="#"><h3 style="color: white;">Our contact no.:- 8260743307, 8895098388, 9692672705</h3></a></li>
+                <li><a href="#"><h3 style="color: white;">Our whatsapp no.:- 7327969733, 8917679902</h3></a></li>
+                <li><a href="#"><h3 style="color: white;">Address:- Mayurbhanj, Odisha</h3></a></li>
+            </ul>
+        </div>
+    </center>
+</body>
+</html>
